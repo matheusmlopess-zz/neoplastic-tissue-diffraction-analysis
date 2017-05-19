@@ -1,13 +1,13 @@
-function varargout = interface2          (varargin)
+function varargout = interface2(varargin)
 gui_Singleton = 1;
 gui_State = struct('gui_Name',  mfilename,'gui_Singleton',gui_Singleton, 'gui_OpeningFcn',@interface2_OpeningFcn,'gui_OutputFcn' ,@interface2_OutputFcn ,'gui_LayoutFcn' ,[],'gui_Callback',[]);
 if nargin && ischar(varargin{1})
-    gui_State.gui_Callback = str2func(varargin{1});
+gui_State.gui_Callback = str2func(varargin{1});
 end
 if nargout
-    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+[varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
 else
-    gui_mainfcn(gui_State, varargin{:});
+gui_mainfcn(gui_State, varargin{:});
 end
 
 function varargout = interface2_OutputFcn(~, ~, handles )
@@ -19,7 +19,7 @@ guidata(hObject, handles);
 % clc 
 format shortG;
 
-global                   ...
+global...
 caminhoDosArquivosDeTexto...
 PA_04_VZ                 ...
 PA_04_PLS                ...
@@ -53,8 +53,8 @@ IARpa4                   ...
 IARpa3                   ...
 IARpa2                   ...
 IARpa1                   ...
-PA_04_Antes              ...     
-PA_03_Antes              ...   
+PA_04_Antes              ...
+PA_03_Antes              ...
 PA_02_Antes              ...
 PA_01_Antes              ...
 mais                     ...
@@ -268,7 +268,7 @@ plotFinal...
 assignin('base','dadosSelecionados',dadosSelecionados           );
 assignin('base','pAselecionado',pAselecionado               ); 
 assignin('base','nomeDaAmostraSelecionada',nomeDaAmostraSelecionada    ); 
-assignin('base','PA_01_VZ',PA_01_VZ                    );
+assignin('base','PA_01_VZ',PA_01_VZ);
 assignin('base','PA_02_VZ',PA_02_VZ                    );
 assignin('base','PA_03_VZ_REP',PA_03_VZ_REP                );
 assignin('base','PA_04_VZ',PA_04_VZ                    );
@@ -301,7 +301,7 @@ tabgp.SelectedTab = tab1;
     set(handles.text36,'String',qCritico);
     set(handles.nda9,'String',strcat('de [ ',num2str(length(Q)),' ] '));
     set(handles.thetaTextedi,'String',TETA(angCritico,1))
-    set(handles.text14,'String','[I]ntesidade sem correÁ„o:');
+    set(handles.text14,'String','[I]ntesidade sem corre√ß√£o:');
 
   
     thethaCritico = TETA(angCritico,1);
@@ -475,7 +475,7 @@ tabgp.SelectedTab = tab1;
         legend({'Amostra Irradiada' 'Ang. critico (\theta)'},'Box','off','Location','best')
 
     
-     xlabel(' \theta (∫) ');
+     xlabel(' \theta (¬∫) ');
      ylabel('Intensidade do feixe')
      grid on
                 ymax = max(dadosSelecionados(:,2),1)-1000;
@@ -555,7 +555,7 @@ end
          figure
          plot(TETA,dadosSelecionados(:,2), 'k','LineWidth',1.0 );
          title(nomeDaAmostraSelecionada);
-         xlabel('q(\lambda,\theta (∫))');
+         xlabel('q(\lambda,\theta (¬∫))');
          ylabel('Intensidade do feixe');
          axis([min(TETA) max(TETA) min(dadosSelecionados(:,2)) max(dadosSelecionados(:,2))]);
          grid on
@@ -703,7 +703,7 @@ subplot(4,1,1)
        plot(Qlinha,obtido_,'r',Qlinha,teorico-dif,'b')
        axis tight
        grid on
-       title('ComparaÁ„o Fator de Forma Experimental X TeÈrico')
+       title('Compara√ß√£o Fator de Forma Experimental X Te√©rico')
        legend('Experiemental','by M E Peplow et al')
 subplot(4,1,2)
        plot(Qlinha,obtido_,'r',Q2linha,teorico2-dif2,'b')
@@ -791,7 +791,7 @@ subplot(2,1,1)
        plot(Qlinha,obtido_,'--r',Qlinha,teorico-dif,'b')
        axis tight
        grid on
-       title('ComparaÁ„o Fator de Forma Experimental X TeÈrico')
+       title('Compara√ß√£o Fator de Forma Experimental X Te√©rico')
        legend('Experiemental','by M E Peplow et al')
 subplot(2,1,2)
        plot(Q2linha,obtido_2,'--r',Q2linha,teorico2-dif2,'b')
@@ -839,7 +839,7 @@ subplot(2,1,2)
        plot(Qlinha,obtido_,'--r',Qlinha,teorico-dif,'b')
        axis tight
        grid on
-       title('ComparaÁ„o Fator de Forma Experimental X TeÈrico')
+       title('Compara√ß√£o Fator de Forma Experimental X Te√©rico')
        legend('Experiemental','by M E Peplow et al')
                 
 
@@ -965,7 +965,7 @@ cla
 %                                axis([min(Q(:)) max(Q(:)) min(plotCorrigido) max(plotCorrigido)+5E-25 ])
                                hold on
                                plot(Q,media*ones(length(Q),1),'-.','LineWidth',2);
-                               title('picos superiores a mÈdia e d. entre-picos (5)')
+                               title('picos superiores a m√©dia e d. entre-picos (5)')
 %                              set(gca,'XTick',[0:5: max(Q(:))],'XTickLabelRotation',45,'YTick',[0:1500: max(plotCorrigido)+1500])
 %                              xy2= [pks2,locs2] ;
                                hold off
@@ -1003,7 +1003,7 @@ function stat_Callback(~, ~, ~)
  dadosSelecionados ...
                ;
            
-           %usando mÈdia movel
+           %usando m√©dia movel
           [tam, ~]=size(dadosSelecionados(:,2));
           c = smooth( dadosSelecionados(:,2));
           [~, ~]=size(c);
@@ -1014,7 +1014,7 @@ function stat_Callback(~, ~, ~)
           hold on
           plot(C,'-');
           title('teste')
-% ------------------------funÁıes internas-------------------------------%
+% ------------------------fun√ß√µes internas-------------------------------%
 function graficosCorr_Callback(~, ~, ~)
 global  volume              ...
         QPOLAR              ...
@@ -1066,20 +1066,20 @@ assignin('base','K',        K                   );
     
 
      hFig = figure;
-     tabplot('CorreÁ„o do volume',hFig,'top');
+     tabplot('Corre√ß√£o do volume',hFig,'top');
      plot(volume);
      legend('G(q)')
      xlabel('q(nm^-^1)'); 
      ylabel('G(q) mm^3');
      grid on
-     title('CorreÁ„o do volume da amostra irradiada');
+     title('Corre√ß√£o do volume da amostra irradiada');
 
-     tabplot('PolarizaÁ„o',hFig);
+     tabplot('Polariza√ß√£o',hFig);
      plot(QPOLAR,Polarizacao);
      legend('P(q)')
      xlabel('q(nm^-^1)'); 
      ylabel('P(q)');
-     title('Fator de PolarizaÁ„o');
+     title('Fator de Polariza√ß√£o');
      grid on
     
       %         IfilmePA4   ...   
@@ -1099,7 +1099,7 @@ assignin('base','K',        K                   );
 %         IPA    ...    
 
      
-     tabplot('CorreÁ„o da intensidade do AR',hFig);
+     tabplot('Corre√ß√£o da intensidade do AR',hFig);
      
      subplot(4,1,1)
      plot(Q,IARpa4,'k',Q,IARpa3,'c',Q,IARpa2,'b',Q,IARpa1,'g',Q,IAR,'r');
@@ -1107,7 +1107,7 @@ assignin('base','K',        K                   );
      axis auto
  
      title('Intensidades Ar');
-     legend('IAR PA01','IAR PA02','IAR PA03','IAR PA04','IAR MÈdia');
+     legend('IAR PA01','IAR PA02','IAR PA03','IAR PA04','IAR M√©dia');
      hold off
      
      subplot(4,1,2)
@@ -1135,10 +1135,10 @@ assignin('base','K',        K                   );
      title('Int. Pa  ');
           xlabel('q(nm^-^1)');
      ylabel('Int. do feixe (u.a.)');
-     legend('Ipa01','Ipa02','Ipa03','Ipa04','IPA MÈdio')
+     legend('Ipa01','Ipa02','Ipa03','Ipa04','IPA M√©dio')
      axis auto
       
-        tabplot('SobreposiÁ„o',hFig);
+        tabplot('Sobreposi√ß√£o',hFig);
         prova= IAR+IFilme+IPA;
        
         plot(Q,IAR,'k',Q,IFilme,'c',Q,IPA,'b',Q,prova,'r' )
@@ -1170,7 +1170,7 @@ assignin('base','K',        K                   );
         subplot(3,1,1)
         plot(Q,Polarizacao,'c',Q,volume,'b',Q,K','k')
         title('K(q) P(q) A(q)')
-        legend('PolarizaÁ„o','A','K')
+        legend('Polariza√ß√£o','A','K')
         axis([min(Q(:)) max(Q(:)) min([min(Polarizacao),min(volume),min(K)]) max([max(Polarizacao),max(volume),max(K)])])
         fc=Polarizacao(:,1).*volume(:,1);
         grid on
@@ -1179,14 +1179,14 @@ assignin('base','K',        K                   );
         subplot(3,1,2)
         plot(Q,fc,'r','LineWidth',2)
         legend('K*Polarizacao*volume')
-        title('correÁ„o P*A')
+        title('corre√ß√£o P*A')
         axis([min(Q(:)) max(Q(:)) min(fc) max(fc)])
         grid on
         subplot(3,1,3)
         fc2=1./fc(:,1);
         plot(Q,fc2,'b','LineWidth',2)
         legend('[Polarizacao*volume]^-1')
-        title('correÁ„o (P*A) ^(^-^1^)')
+        title('corre√ß√£o (P*A) ^(^-^1^)')
         axis([min(Q(:)) max(Q(:)) min(fc2) max(fc2)])    
         grid on
 function padrao_Callback  (hObject, ~, handles)
@@ -1468,7 +1468,7 @@ global caminhoDosArquivosDeTexto ...
   expotarTipoNome= char(strcat(tipoPortaAmostra(1),'_',tipoSelecionado,'_',date,'.xlsx'));
 
                 if( isempty(char(Arqselecionado(1))))
-                    aux1 =strcat('Selecione uma opÁ„o valida, a pasta: [ ',caminhoDosArquivosDeTexto,pastaSelecionada,'] parece estar vazia ')
+                    aux1 =strcat('Selecione uma op√ß√£o valida, a pasta: [ ',caminhoDosArquivosDeTexto,pastaSelecionada,'] parece estar vazia ')
                      uiwait(warndlg(aux1));
                      return          
                 end
@@ -1509,36 +1509,36 @@ global caminhoDosArquivosDeTexto ...
 
 %     xlswrite (expotarTipoNome, data1,'Corr. (esxp+norm)','A1');
 %     i=i+1;  waitbar(i/16);
-%     xlswrite (expotarTipoNome, data1,'Corr.(esxp+norm)MÈdia','A1');
+%     xlswrite (expotarTipoNome, data1,'Corr.(esxp+norm)M√©dia','A1');
 %     i=i+1;  waitbar(i/16);
-    xlswrite (expotarTipoNome, data1,'semCorreÁ„o','A1');
+    xlswrite (expotarTipoNome, data1,'semCorre√ß√£o','A1');
     i=i+1;  waitbar(i/10);
-    xlswrite (expotarTipoNome, data1,'correÁ„o expurias','A1');
+    xlswrite (expotarTipoNome, data1,'corre√ß√£o expurias','A1');
     i=i+1;  waitbar(i/10);
-    xlswrite (expotarTipoNome, data1,'correÁ„o expurias MÈdia','A1');
+    xlswrite (expotarTipoNome, data1,'corre√ß√£o expurias M√©dia','A1');
     i=i+1;  waitbar(i/10);
-    xlswrite (expotarTipoNome, data1,'Im(sÛ transmiÁ„o)','A1');
+    xlswrite (expotarTipoNome, data1,'Im(s√≥ transmi√ß√£o)','A1');
     i=i+1;  waitbar(i/10);
-    xlswrite (expotarTipoNome, data1,'Im(sÛ trans) MÈdia','A1');
+    xlswrite (expotarTipoNome, data1,'Im(s√≥ trans) M√©dia','A1');
     i=i+1;  waitbar(i/10);
-%     xlswrite (expotarTipoNome, data1,'normalizaÁ„o p.amostra','A1');
+%     xlswrite (expotarTipoNome, data1,'normaliza√ß√£o p.amostra','A1');
 %     i=i+1;  waitbar(i/16);
     
 %     xlswrite (expotarTipoNome, auxFinalmediadaMaisNorm,'Corr. (esxp+norm)','D1');
 %     i=i+1;  waitbar(i/16);
-%     xlswrite (expotarTipoNome, auxFinalmediadaMaisNormMedia,'Corr.(esxp+norm)MÈdia','D1');
+%     xlswrite (expotarTipoNome, auxFinalmediadaMaisNormMedia,'Corr.(esxp+norm)M√©dia','D1');
 %     i=i+1;  waitbar(i/16);
-    xlswrite (expotarTipoNome, auxSemCorrigir,'semCorreÁ„o','D1');
+    xlswrite (expotarTipoNome, auxSemCorrigir,'semCorre√ß√£o','D1');
     i=i+1;  waitbar(i/10);
     xlswrite (expotarTipoNome, auxCorrigida,'expurias+r0','D1');
     i=i+1;  waitbar(i/10);
-    xlswrite (expotarTipoNome, auxCorrigidaMedia,'espurias+r0 MÈdia','D1');
+    xlswrite (expotarTipoNome, auxCorrigidaMedia,'espurias+r0 M√©dia','D1');
     i=i+1;  waitbar(i/10);
-    xlswrite (expotarTipoNome, auxImedida,'Im(sÛ transmiÁ„o)','D1');
+    xlswrite (expotarTipoNome, auxImedida,'Im(s√≥ transmi√ß√£o)','D1');
     i=i+1;  waitbar(i/10);
-    xlswrite (expotarTipoNome, auxImedidaMedia,'Im(sÛ trans) MÈdia','D1');
+    xlswrite (expotarTipoNome, auxImedidaMedia,'Im(s√≥ trans) M√©dia','D1');
     i=i+1;  waitbar(i/10);
-%     xlswrite (expotarTipoNome, auxInormalizacao,'normalizaÁ„o p.amostra','D1');
+%     xlswrite (expotarTipoNome, auxInormalizacao,'normaliza√ß√£o p.amostra','D1');
 %     i=i+1;  waitbar(i/16);
          
    delete(h)  
@@ -1647,7 +1647,7 @@ global caminhoDosArquivosDeTexto ...
             %      cellstr(data1{x})
 
                 if( isempty(char(Arqselecionado(1))))
-                    aux1 =strcat('Selecione uma opÁ„o valida, a pasta: [ ',caminhoDosArquivosDeTexto,pastaSelecionada,'] parece estar vazia ')
+                    aux1 =strcat('Selecione uma op√ß√£o valida, a pasta: [ ',caminhoDosArquivosDeTexto,pastaSelecionada,'] parece estar vazia ')
                      uiwait(warndlg(aux1));
                      return          
                 end
@@ -1685,33 +1685,33 @@ global caminhoDosArquivosDeTexto ...
                legend(legendInfo)
                title('por PA')
                figure(9)
-               title('por MÈdia dos PAs 1-4')
+               title('por M√©dia dos PAs 1-4')
                legend(legendInfo)
                
    h = waitbar(0,'Exportando resultados para excel..');
    warning('off','MATLAB:xlswrite:addSheet')
    i=0;
    
-%     xlswrite (expotarTipoNome, data1,'semCorreÁ„o','A1');
+%     xlswrite (expotarTipoNome, data1,'semCorre√ß√£o','A1');
 %     i=i+1;  waitbar(i/10);
-%     xlswrite (expotarTipoNome, data1,'correÁ„o','A1');
+%     xlswrite (expotarTipoNome, data1,'corre√ß√£o','A1');
 %     i=i+1;  waitbar(i/10);
-%     xlswrite (expotarTipoNome, data1,'correÁ„o MÈdia','A1');
+%     xlswrite (expotarTipoNome, data1,'corre√ß√£o M√©dia','A1');
 %     i=i+1;  waitbar(i/10);
-%     xlswrite (expotarTipoNome, data1,'Im(sÛ transmiÁ„o)','A1');
+%     xlswrite (expotarTipoNome, data1,'Im(s√≥ transmi√ß√£o)','A1');
 %     i=i+1;  waitbar(i/10);
-%     xlswrite (expotarTipoNome, data1,'Im(sÛ trans) MÈdia','A1');
+%     xlswrite (expotarTipoNome, data1,'Im(s√≥ trans) M√©dia','A1');
 %     i=i+1;  waitbar(i/10);
 %  
-%     xlswrite (expotarTipoNome, auxSemCorrigir,'semCorreÁ„o','D1');
+%     xlswrite (expotarTipoNome, auxSemCorrigir,'semCorre√ß√£o','D1');
 %     i=i+1;  waitbar(i/10);
-%     xlswrite (expotarTipoNome, auxCorrigida,'correÁ„o','D1');
+%     xlswrite (expotarTipoNome, auxCorrigida,'corre√ß√£o','D1');
 %     i=i+1;  waitbar(i/10);
-%     xlswrite (expotarTipoNome, auxCorrigidaMedia,'correÁ„o MÈdia','D1');
+%     xlswrite (expotarTipoNome, auxCorrigidaMedia,'corre√ß√£o M√©dia','D1');
 %     i=i+1;  waitbar(i/10);
-%     xlswrite (expotarTipoNome, auxImedida,'Im(sÛ transmiÁ„o)','D1');
+%     xlswrite (expotarTipoNome, auxImedida,'Im(s√≥ transmi√ß√£o)','D1');
 %     i=i+1;  waitbar(i/10);
-%     xlswrite (expotarTipoNome, auxImedidaMedia,'Im(sÛ trans) MÈdia','D1');
+%     xlswrite (expotarTipoNome, auxImedidaMedia,'Im(s√≥ trans) M√©dia','D1');
 %     i=i+1;  waitbar(i/10);
 %     
 
@@ -1721,36 +1721,36 @@ global caminhoDosArquivosDeTexto ...
 %nao usar
 %     xlswrite (expotarTipoNome, data1,'Corr. (esxp+norm)','A1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, data1,'Corr.(esxp+norm)MÈdia','A1');
+%     xlswrite (expotarTipoNome, data1,'Corr.(esxp+norm)M√©dia','A1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, data1,'semCorreÁ„o','A1');
+%     xlswrite (expotarTipoNome, data1,'semCorre√ß√£o','A1');
 %     ii=ii+1;  waitbar(ii/16);
 %     xlswrite (expotarTipoNome, data1,'expurias+r0','A1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, data1,'espurias+r0 MÈdia','A1');
+%     xlswrite (expotarTipoNome, data1,'espurias+r0 M√©dia','A1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, data1,'Im(sÛ transmiÁ„o)','A1');
+%     xlswrite (expotarTipoNome, data1,'Im(s√≥ transmi√ß√£o)','A1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, data1,'Im(sÛ trans) MÈdia','A1');
+%     xlswrite (expotarTipoNome, data1,'Im(s√≥ trans) M√©dia','A1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, data1,'normalizaÁ„o p.amostra','A1');
+%     xlswrite (expotarTipoNome, data1,'normaliza√ß√£o p.amostra','A1');
 %     ii=ii+1;  waitbar(ii/16);
 %     
 %     xlswrite (expotarTipoNome, auxFinalmediadaMaisNorm,'Corr. (esxp+norm)','D1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, auxFinalmediadaMaisNormMedia,'Corr.(esxp+norm)MÈdia','D1');
+%     xlswrite (expotarTipoNome, auxFinalmediadaMaisNormMedia,'Corr.(esxp+norm)M√©dia','D1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, auxSemCorrigir,'semCorreÁ„o','D1');
+%     xlswrite (expotarTipoNome, auxSemCorrigir,'semCorre√ß√£o','D1');
 %     ii=ii+1;  waitbar(ii/16);
 %     xlswrite (expotarTipoNome, auxCorrigida,'expurias+r0','D1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, auxCorrigidaMedia,'espurias+r0 MÈdia','D1');
+%     xlswrite (expotarTipoNome, auxCorrigidaMedia,'espurias+r0 M√©dia','D1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, auxImedida,'Im(sÛ transmiÁ„o)','D1');
+%     xlswrite (expotarTipoNome, auxImedida,'Im(s√≥ transmi√ß√£o)','D1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, auxImedidaMedia,'Im(sÛ trans) MÈdia','D1');
+%     xlswrite (expotarTipoNome, auxImedidaMedia,'Im(s√≥ trans) M√©dia','D1');
 %     ii=ii+1;  waitbar(ii/16);
-%     xlswrite (expotarTipoNome, auxInormalizacao,'normalizaÁ„o p.amostra','D1');
+%     xlswrite (expotarTipoNome, auxInormalizacao,'normaliza√ß√£o p.amostra','D1');
 %     ii=ii+1;  waitbar(ii/16);
 %          
 %    delete(h)  
@@ -2053,7 +2053,7 @@ global caminhoDosArquivosDeTexto;
                     valorEnergia=get(handles.edit16,'String');
                     
                     if(valorEnergia< 1 | isnan(str2double(valorEnergia)))
-                    uiwait(warndlg('Medidas n„o encontradas ou invalidas. Para continuar È preciso inserir medidas validas'));
+                    uiwait(warndlg('Medidas n√£o encontradas ou invalidas. Para continuar √© preciso inserir medidas validas'));
                     set(handles.aa,'BackgroundColor','red');
                     set(handles.bb,'BackgroundColor','red');
                     set(handles.hhh,'BackgroundColor','red');
@@ -2106,7 +2106,7 @@ contents = cellstr(get(hObject,'String'));
                     
                     valorEnergia=get(handles.edit16,'String');
                     if(valorEnergia< 1 | isnan(str2double(valorEnergia)))
-                    uiwait(warndlg('Medidas n„o encontradas ou invalidas. Para continuar È preciso inserir medidas validas'));
+                    uiwait(warndlg('Medidas n√£o encontradas ou invalidas. Para continuar √© preciso inserir medidas validas'));
                     set(handles.aa,'BackgroundColor','red');
                     set(handles.bb,'BackgroundColor','red');
                     set(handles.hhh,'BackgroundColor','red');
@@ -2175,7 +2175,7 @@ contents = cellstr(get(hObject,'String'));
                     
                                         valorEnergia=get(handles.edit16,'String');
                     if(valorEnergia< 1 | isnan(str2double(valorEnergia)))
-                    uiwait(warndlg('Medidas n„o encontradas ou invalidas. Para continuar È preciso inserir medidas validas'));
+                    uiwait(warndlg('Medidas n√£o encontradas ou invalidas. Para continuar √© preciso inserir medidas validas'));
                     set(handles.aa,'BackgroundColor','red');
                     set(handles.bb,'BackgroundColor','red');
                     set(handles.hhh,'BackgroundColor','red');
@@ -2244,7 +2244,7 @@ contents = cellstr(get(hObject,'String'));
                     i=0;
                     valorEnergia=get(handles.edit16,'String');
                     if(valorEnergia< 1 | isnan(str2double(valorEnergia)))
-                    uiwait(warndlg('Medidas n„o encontradas ou invalidas. Para continuar È preciso inserir medidas validas'));
+                    uiwait(warndlg('Medidas n√£o encontradas ou invalidas. Para continuar √© preciso inserir medidas validas'));
                     set(handles.aa,'BackgroundColor','red');
                     set(handles.bb,'BackgroundColor','red');
                     set(handles.hhh,'BackgroundColor','red');
@@ -2310,7 +2310,7 @@ if (isempty(textString)|| isequal(textString,'0'))
   if ~isempty(currentString)
     textString = currentString;
   else
-    uiwait(warndlg('Campo n„o preechido... Favor preencher com valor valido'));
+    uiwait(warndlg('Campo n√£o preechido... Favor preencher com valor valido'));
   end
   return;
 end
@@ -2318,7 +2318,7 @@ end
 if(str2double(textString)~='NaN')
    valorB = str2double(currentString);
 else
-    uiwait(warndlg('Valor n„o correspondente... tente novamente'));
+    uiwait(warndlg('Valor n√£o correspondente... tente novamente'));
 end
 function hhh_Callback          (~, ~, handles      )
 global valorH;
@@ -2328,14 +2328,14 @@ if (isempty(textString)|| isequal(textString,'0'))
   if ~isempty(currentString)
     textString = currentString;
   else
-    uiwait(warndlg('Campo n„o preechido... Favor preencher com valor valido'));
+    uiwait(warndlg('Campo n√£o preechido... Favor preencher com valor valido'));
   end
   return;
 end
 if(str2double(textString)~='NaN')
    valorH = str2double(currentString);
 else
-    uiwait(warndlg('Valor n„o correspondente... tente novamente'));
+    uiwait(warndlg('Valor n√£o correspondente... tente novamente'));
 end
 function transfere_Callback    (hObject, ~, handles)
 global caminhoDosArquivosDeTexto ...
@@ -2411,14 +2411,14 @@ global valorA ...
        hold off
        
 if(isequal(num2str(valorA),'NaN')||isequal(valorA,0))
-uiwait(warndlg('Medida [ a ] n„o computada ou igual a zero (0):                                                                   Insira Medida valida'));
+uiwait(warndlg('Medida [ a ] n√£o computada ou igual a zero (0):                                                                   Insira Medida valida'));
 elseif(~isempty(valorA)&& ~isequal(valorA,0) && ~isequal(num2str(valorA),'NaN'))
 okaya = true;
 valorA = str2double(get(handles.aa, 'String'));
 end
  
 if(isequal(num2str(valorB),'NaN')||isequal(valorB,0))
-uiwait(warndlg('Medida [ b ] n„o computada ou igual a zero (0):                                                                   Insira Medida valida'));
+uiwait(warndlg('Medida [ b ] n√£o computada ou igual a zero (0):                                                                   Insira Medida valida'));
 elseif(~isempty(valorB)&& ~isequal(valorB,0) && ~isequal(num2str(valorB),'NaN'))
 valorB = str2double(get(handles.bb, 'String'));
 okayb = true;
@@ -2427,11 +2427,11 @@ end
 if(isequal(num2str(valorH),'NaN')||isequal(valorH,0) )
  
 
-    uiwait(warndlg('Medida [ h ] n„o computada igual a zero (0):                                                     Insira Medida valida'))
+    uiwait(warndlg('Medida [ h ] n√£o computada igual a zero (0):                                                     Insira Medida valida'))
   
 elseif(~isempty(valorH)&& ~isequal(valorH,0) && ~isequal(num2str(valorH),'NaN'))
 if (valorH > max(altura))
-aux=strcat('Medida [ h ] n„o computada : Maior que a altura maxima [ ',num2str(max(altura)),' ] calculada automaticamente a partir do ang. theta')
+aux=strcat('Medida [ h ] n√£o computada : Maior que a altura maxima [ ',num2str(max(altura)),' ] calculada automaticamente a partir do ang. theta')
 uiwait(warndlg(aux));
 else
 valorH = str2double(get(handles.hhh, 'String'));
@@ -2660,7 +2660,7 @@ if(strcmp(Arqselecionado2,opc2))
                                 axis([min(Q(:)) max(Q(:)) min(PA_01_PLS_1MIN) max(PA_01_PLS_1MIN)]);
                                 if(mostarJanela>0) 
                                       figure
-                                      plotGraficoFacil(Q,PA_01_PLS_1MIN,'Intensidades obtidas para PA01 com Pl·stico','PA01 Pl·stico');
+                                      plotGraficoFacil(Q,PA_01_PLS_1MIN,'Intensidades obtidas para PA01 com Pl√°stico','PA01 Pl√°stico');
                                 end                                            
                           end
                           if(strcmp(pAselecionado,'PA02'))
@@ -2670,7 +2670,7 @@ if(strcmp(Arqselecionado2,opc2))
                                  axis([min(Q(:)) max(Q(:)) min(PA_02_PLS) max(PA_02_PLS)]);
                                 if(mostarJanela>0) 
                                       figure
-                                      plotGraficoFacil(Q,PA_02_PLS,'Intensidades obtidas para PA02 com Pl·stico','PA02 Pl·stico');
+                                      plotGraficoFacil(Q,PA_02_PLS,'Intensidades obtidas para PA02 com Pl√°stico','PA02 Pl√°stico');
                                 end                               
                           end
                           if(strcmp(pAselecionado,'PA03'))
@@ -2680,7 +2680,7 @@ if(strcmp(Arqselecionado2,opc2))
                                  axis([min(Q(:)) max(Q(:)) min(PA_03_PLS) max(PA_03_PLS)]);
                                 if(mostarJanela>0) 
                                       figure
-                                      plotGraficoFacil(Q,PA_03_PLS,'Intensidades obtidas para PA03 com Pl·stico','PA03 Pl·stico');
+                                      plotGraficoFacil(Q,PA_03_PLS,'Intensidades obtidas para PA03 com Pl√°stico','PA03 Pl√°stico');
                                 end                              
                           end
                           if(strcmp(pAselecionado,'PA04'))
@@ -2691,7 +2691,7 @@ if(strcmp(Arqselecionado2,opc2))
                                  axis([min(Q(:)) max(Q(:)) min(PA_04_PLS) max(PA_04_PLS)]);
                                 if(mostarJanela>0) 
                                       figure
-                                      plotGraficoFacil(Q,PA_04_PLS,'Intensidades obtidas para PA04 com Pl·stico','PA04 Pl·stico');
+                                      plotGraficoFacil(Q,PA_04_PLS,'Intensidades obtidas para PA04 com Pl√°stico','PA04 Pl√°stico');
                                 end
                           end
 end  
@@ -2933,14 +2933,14 @@ global tabgp ...
 f = gcf;
 tabgp  = uitabgroup(f,'Position',[0.58 .01 .4 0.90]);
 
-tab1   = uitab(tabgp,'Title','An·lise da amostra');
-tab2   = uitab(tabgp,'Title','PÛs - An·lise');
-tab3   = uitab(tabgp,'Title','PÛs - An·lise II');
+tab1   = uitab(tabgp,'Title','An√°lise da amostra');
+tab2   = uitab(tabgp,'Title','P√≥s - An√°lise');
+tab3   = uitab(tabgp,'Title','P√≥s - An√°lise II');
 tab3_3 = uitab(tabgp,'Title','Perfis da agua');
 tab3_4 = uitab(tabgp,'Title','Perfis Tecidos');
 tab4   = uitab(tabgp,'Title','Dados iniciais  ');
 tab5   = uitab(tabgp,'Title','PA');
-tab3_2 = uitab(tabgp,'Title','PÛs - An·lise III');
+tab3_2 = uitab(tabgp,'Title','P√≥s - An√°lise III');
 assignin('base','tab3_2',tab3_2)
 uicontrol(tab3,'Style', 'pushbutton', 'String', 'Iterar','Callback', @iterar);
 uicontrol(tab5,'Style', 'pushbutton', 'String', 'Anima' ,'Callback', @anima );   
