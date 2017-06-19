@@ -5,7 +5,7 @@
 Team:
 
 
-  Liza Macedo Lopes (Project leader)
-  Matheus Macedo Lopes
+  Liza Macedo Lopes (Project leader) and
+  Matheus Macedo Lopes (GUI & code)
 
 ![alt_tag](http://i.imgur.com/6VuDI8U.png)
